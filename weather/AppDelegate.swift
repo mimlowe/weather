@@ -15,7 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        /* Create ui-view-controller instance*/
+        let notice = WeatherRouter.createModule()
+        
+        /* Initiating instance of ui-navigation-controller with view-controller */
+        let navigationController = UINavigationController()
+        navigationController.viewControllers = [notice]
+        
+        /* Setting up the root view-controller as ui-navigation-controller */
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navigationController
+
+        UINavigationBar.appearance().barTintColor = UIColor.Custom.yellow
+        UINavigationBar.appearance().isTranslucent = false
+        
+        UIBarButtonItem.appearance().setTitleTextAttributes( [NSAttributedString.Key.foregroundColor : UIColor.Custom.yellow], for: .normal)
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.Custom.light]
+       
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
