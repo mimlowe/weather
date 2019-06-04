@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import ObjectMapper
 import CoreLocation
 
 class WeatherInteractor: PresenterToInteractorProtocol{
