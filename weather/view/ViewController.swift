@@ -75,7 +75,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let iconSuffix = myCity.img
         var temp_f = KelvintoFahrenheit(kelvin: (myCity.temp_report.temp))
         // Display the temperature without the decimal
-        var temp_i = Int(temp_f)
+        let temp_i = Int(temp_f)
         let url = "http://openweathermap.org/img/w/"+iconSuffix+".png"
 
         temp_f = temp_f.rounded()

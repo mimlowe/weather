@@ -11,11 +11,11 @@ import CoreLocation
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var nameLabel: UILabel?
-    @IBOutlet weak var tempLabel: UILabel?
-    @IBOutlet weak var windLabel: UILabel?
-    @IBOutlet weak var iconImage: UIImageView?
-    @IBOutlet weak var compass  : UIImageView?
+    @IBOutlet weak var tempLabel         : UILabel?
+    @IBOutlet weak var windLabel         : UILabel?
+    @IBOutlet weak var iconImage         : UIImageView?
+    @IBOutlet weak var compass           : UIImageView?
+    
     // A single City object for detailed view
     public var city: City?
     var presentor:ViewToPresenterProtocol?
