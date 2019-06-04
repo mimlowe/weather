@@ -15,8 +15,7 @@ class WeatherInteractor: PresenterToInteractorProtocol{
     var presenter: InteractorToPresenterProtocol?
     
     func fetchCity(name: String) {
-        
-        Alamofire.request("https://samples.openweathermap.org/data/2.5/weather?q=\(name)&appid=9109213839ec4970cc704ded7e1c05ee").responseJSON { response in
+        Alamofire.request("https://samples.openweathermap.org/data/2.5/weather?q=\(name)&appid=78186aead57515b8409525c9b9d682ff").responseJSON { response in
             if(response.response?.statusCode == 200){
                 if let json = response.result.value as AnyObject? {
                     let id = json["id"] as? Int
@@ -39,7 +38,7 @@ class WeatherInteractor: PresenterToInteractorProtocol{
                     let model = City(name: name!, img: img!, id: id!, temp_report: tempReport, wind_report: windReport)
                     self.presenter?.cityFetchedSuccess(city: model)
                 }
-            } else {
+            }else {
                 self.presenter?.cityFetchFailed()
             }
         }
@@ -47,7 +46,7 @@ class WeatherInteractor: PresenterToInteractorProtocol{
     
     func fetchCurrentCity(loc: CLLocationCoordinate2D) {
         
-        Alamofire.request("http://api.openweathermap.org/data/2.5/weather?lat=\(loc.latitude)&lon=\(loc.longitude)&appid=9109213839ec4970cc704ded7e1c05ee").responseJSON { response in
+        Alamofire.request("http://api.openweathermap.org/data/2.5/weather?lat=\(loc.latitude)&lon=\(loc.longitude)&appid=78186aead57515b8409525c9b9d682ff").responseJSON { response in
             if(response.response?.statusCode == 200){
                 if let json = response.result.value as AnyObject? {
                     let id = json["id"] as? Int
