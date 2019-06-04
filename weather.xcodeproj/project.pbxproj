@@ -20,6 +20,7 @@
 		D7DAFBB222A5CCB90045A01E /* WeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DAFBB122A5CCB90045A01E /* WeatherPresenter.swift */; };
 		D7DAFBB422A5CF2A0045A01E /* WeatherRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DAFBB322A5CF2A0045A01E /* WeatherRouter.swift */; };
 		D7DAFBB622A5E0020045A01E /* util.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DAFBB522A5E0020045A01E /* util.swift */; };
+		D7DAFBBE22A5EBDB0045A01E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DAFBBD22A5EBDB0045A01E /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		D7DAFBB122A5CCB90045A01E /* WeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenter.swift; sourceTree = "<group>"; };
 		D7DAFBB322A5CF2A0045A01E /* WeatherRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRouter.swift; sourceTree = "<group>"; };
 		D7DAFBB522A5E0020045A01E /* util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = util.swift; sourceTree = "<group>"; };
+		D7DAFBBD22A5EBDB0045A01E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7DAFBBE22A5EBDB0045A01E /* CoreLocation.framework in Frameworks */,
 				12B468C9681BF2B56069D307 /* Pods_weather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,6 +60,7 @@
 		9306565058CB9DEB87FD21EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D7DAFBBD22A5EBDB0045A01E /* CoreLocation.framework */,
 				4C102DA3F8F1C55D0C28A351 /* Pods_weather.framework */,
 			);
 			name = Frameworks;

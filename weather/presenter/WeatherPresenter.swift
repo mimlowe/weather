@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 class WeatherPresenter:ViewToPresenterProtocol {
     
@@ -17,9 +18,12 @@ class WeatherPresenter:ViewToPresenterProtocol {
     
     var router: PresenterToRouterProtocol?
     
-    func startFetchingCity() {
-        print("fetching weather")
-        interactor?.fetchCity()
+    func startFetchingCity(name: String) {
+        interactor?.fetchCity(name: name)
+    }
+    
+    func startFetchingCurrentCity(loc: CLLocationCoordinate2D) {
+        interactor?.fetchCurrentCity(loc: loc)
     }
     
     func showCityController(navigationController: UINavigationController) {

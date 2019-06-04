@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
+    
+    let locationManager = CLLocationManager()
     
     @IBOutlet weak var nameLabel: UILabel?
     @IBOutlet weak var tempLabel: UILabel?
@@ -19,10 +22,21 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presentor?.startFetchingCity()
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
         print("here")
         self.title = "Weather"
-        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        presentor?.startFetchingCurrentCity(loc: locValue)
     }
 
 

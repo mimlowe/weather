@@ -7,13 +7,15 @@
 //
 import Foundation
 import UIKit
+import CoreLocation
 
 protocol ViewToPresenterProtocol: class{
     
     var view: PresenterToViewProtocol? {get set}
     var interactor: PresenterToInteractorProtocol? {get set}
     var router: PresenterToRouterProtocol? {get set}
-    func startFetchingCity()
+    func startFetchingCity(name: String)
+    func startFetchingCurrentCity(loc: CLLocationCoordinate2D)
     func showCityController(navigationController:UINavigationController)
     
 }
@@ -30,7 +32,8 @@ protocol PresenterToRouterProtocol: class {
 
 protocol PresenterToInteractorProtocol: class {
     var presenter:InteractorToPresenterProtocol? {get set}
-    func fetchCity()
+    func fetchCity(name: String)
+    func fetchCurrentCity(loc: CLLocationCoordinate2D)
 }
 
 protocol InteractorToPresenterProtocol: class {
