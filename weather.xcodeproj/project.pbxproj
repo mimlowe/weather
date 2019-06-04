@@ -21,6 +21,7 @@
 		D7DAFBB422A5CF2A0045A01E /* WeatherRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DAFBB322A5CF2A0045A01E /* WeatherRouter.swift */; };
 		D7DAFBB622A5E0020045A01E /* util.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DAFBB522A5E0020045A01E /* util.swift */; };
 		D7DAFBBE22A5EBDB0045A01E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DAFBBD22A5EBDB0045A01E /* CoreLocation.framework */; };
+		D7DAFBC122A5F3A80045A01E /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DAFBC022A5F3A80045A01E /* CityCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D7DAFBB322A5CF2A0045A01E /* WeatherRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRouter.swift; sourceTree = "<group>"; };
 		D7DAFBB522A5E0020045A01E /* util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = util.swift; sourceTree = "<group>"; };
 		D7DAFBBD22A5EBDB0045A01E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D7DAFBC022A5F3A80045A01E /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		D7DAFBBB22A5EA3D0045A01E /* view */ = {
 			isa = PBXGroup;
 			children = (
+				D7DAFBBF22A5F3930045A01E /* cells */,
 				D7C21DB622A5B76A00F3E967 /* ViewController.swift */,
 			);
 			path = view;
@@ -158,6 +161,14 @@
 				D7DAFBB522A5E0020045A01E /* util.swift */,
 			);
 			path = utility;
+			sourceTree = "<group>";
+		};
+		D7DAFBBF22A5F3930045A01E /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				D7DAFBC022A5F3A80045A01E /* CityCell.swift */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 		F80C7C99E0361959E2008516 /* Pods */ = {
@@ -301,6 +312,7 @@
 			files = (
 				D7C21DB722A5B76A00F3E967 /* ViewController.swift in Sources */,
 				D7C21DB522A5B76A00F3E967 /* AppDelegate.swift in Sources */,
+				D7DAFBC122A5F3A80045A01E /* CityCell.swift in Sources */,
 				D7DAFBA422A5C5230045A01E /* extend.swift in Sources */,
 				D7DAFBB622A5E0020045A01E /* util.swift in Sources */,
 				D7DAFBB222A5CCB90045A01E /* WeatherPresenter.swift in Sources */,
