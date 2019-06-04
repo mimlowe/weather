@@ -9,56 +9,85 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate{
     
     let locationManager = CLLocationManager()
     
     @IBOutlet weak var nameLabel: UILabel?
     @IBOutlet weak var tempLabel: UILabel?
     @IBOutlet weak var iconImage: UIImageView?
+    @IBOutlet weak var tableView: UITableView?
     
     var presentor:ViewToPresenterProtocol?
-    var myCity: City?
+    var cities:Array<City> = Array()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Weather"
+        self.tableView?.delegate = self
+        self.tableView?.dataSource = self
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
+            locationManager.requestLocation()
         }
-        print("here")
-        self.title = "Weather"
+        presentor?.startFetchingTokyo()
+        presentor?.startFetchingLondon()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
-        presentor?.startFetchingCurrentCity(loc: locValue)
+        if let location = locations.first {
+            let loc: CLLocationCoordinate2D = location.coordinate
+            presentor?.startFetchingCurrentCity(loc: loc)
+        }
     }
-
-
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to find user's location: \(error.localizedDescription)")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailViewController = segue.destination as? DetailViewController,
+            let index = tableView?.indexPathForSelectedRow?.row
+            else {
+                return
+        }
+        detailViewController.city = cities[index]
+    }
 }
 
-extension ViewController: PresenterToViewProtocol{
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Prevents the table view from attempting to load rows from an empty data source
+        return self.cities.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as! CityCell
+        let myCity = cities[indexPath.item]
+        let iconSuffix = myCity.img
+        var temp_f = KelvintoFahrenheit(kelvin: (myCity.temp_report.temp))
+        temp_f = temp_f.rounded()
+        print(iconSuffix)
+        let url = "http://openweathermap.org/img/w/"+iconSuffix+".png"
+        cell.nameLabel.text = myCity.name
+        cell.tempLabel.text = "\(temp_f)ºF"
+        cell.iconImage?.downloaded(from: url)
+        return cell
+    }    
+}
+
+
+extension ViewController: PresenterToViewProtocol {
     
     func showCity(city: City) {
-        
-        self.myCity = city
-        self.nameLabel!.text = myCity?.name
-        let iconSuffix = myCity?.img
-        var temp_f = KelvintoFahrenheit(kelvin: (myCity?.temp_report.temp)!)
-        
-        temp_f = temp_f.rounded()
-        self.tempLabel!.text = "\(temp_f)ºF"
-        print(iconSuffix)
-        let url = "http://openweathermap.org/img/w/"+iconSuffix!+".png"
-        self.iconImage?.downloaded(from: url)
-    
-        //self.uiTableView.reloadData()
-        //hideProgressIndicator(view: self.view)
+        print("handling city info")
+        print(city)
+        self.cities.append(city)
+        self.tableView?.reloadData()
     }
     
     func showError() {

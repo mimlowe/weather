@@ -18,8 +18,12 @@ class WeatherPresenter:ViewToPresenterProtocol {
     
     var router: PresenterToRouterProtocol?
     
-    func startFetchingCity(name: String) {
-        interactor?.fetchCity(name: name)
+    func startFetchingTokyo() {
+        interactor?.fetchTokyo()
+    }
+    
+    func startFetchingLondon() {
+        interactor?.fetchLondon()
     }
     
     func startFetchingCurrentCity(loc: CLLocationCoordinate2D) {

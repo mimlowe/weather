@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor.Custom.yellow
         UINavigationBar.appearance().isTranslucent = false
         
-        UIBarButtonItem.appearance().setTitleTextAttributes( [NSAttributedString.Key.foregroundColor : UIColor.Custom.yellow], for: .normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes( [NSAttributedString.Key.foregroundColor : UIColor.Custom.light], for: .normal)
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.Custom.light]
        
         window?.makeKeyAndVisible()
