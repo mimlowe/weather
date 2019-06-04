@@ -1,5 +1,10 @@
 # Weather iOS Challenge
 
+## Screens
+
+![Table View Screen](./screens/tableview.png)
+![Detail View Screen](./screens/detailview.png)
+
 ## Project Dependencies
 
 This project uses Alamofire for HTTP requests.
