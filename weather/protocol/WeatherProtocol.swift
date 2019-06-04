@@ -9,11 +9,12 @@ import Foundation
 import UIKit
 import CoreLocation
 
+// Protocol definitions
 protocol ViewToPresenterProtocol: class{
     
-    var view: PresenterToViewProtocol? {get set}
-    var interactor: PresenterToInteractorProtocol? {get set}
-    var router: PresenterToRouterProtocol? {get set}
+    var view        : PresenterToViewProtocol? {get set}
+    var interactor  : PresenterToInteractorProtocol? {get set}
+    var router      : PresenterToRouterProtocol? {get set}
     func startFetchingTokyo()
     func startFetchingLondon()
     func startFetchingCurrentCity(loc: CLLocationCoordinate2D)

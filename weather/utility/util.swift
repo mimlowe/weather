@@ -18,3 +18,8 @@ func KelvintoFahrenheit(kelvin: Double) -> Double {
     let fahrenheitTemp = 1.8*(kelvin - 273) + 32
     return fahrenheitTemp
 }
+
+// Degrees -> Radians
+func deg2rad(_ number: Double) -> Double {
+    return number * .pi / 180
+}

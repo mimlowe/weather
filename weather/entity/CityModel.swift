@@ -14,13 +14,15 @@ public struct City {
     public let id: Int
     public let temp_report: TemperatureReport
     public let wind_report: WindReport
+    public let isCurrentCity: Bool
     
-    public init(name: String, img: String, id: Int, temp_report: TemperatureReport, wind_report: WindReport){
+    public init(name: String, img: String, id: Int, temp_report: TemperatureReport, wind_report: WindReport, is_current_city: Bool){
         self.name = name
         self.img = img
         self.id = id
         self.temp_report = temp_report
         self.wind_report = wind_report
+        self.isCurrentCity = is_current_city
         
     }
 }

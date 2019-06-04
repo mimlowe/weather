@@ -11,13 +11,11 @@ import UIKit
 import CoreLocation
 
 class WeatherPresenter:ViewToPresenterProtocol {
-    
-    var view: PresenterToViewProtocol?
-    
+    // Protocols
+    var view:       PresenterToViewProtocol?
     var interactor: PresenterToInteractorProtocol?
-    
-    var router: PresenterToRouterProtocol?
-    
+    var router:     PresenterToRouterProtocol?
+    // Hard coded example city requests
     func startFetchingTokyo() {
         interactor?.fetchTokyo()
     }
@@ -25,7 +23,7 @@ class WeatherPresenter:ViewToPresenterProtocol {
     func startFetchingLondon() {
         interactor?.fetchLondon()
     }
-    
+    // Presenter protocol method for fetching data from user's lat/long
     func startFetchingCurrentCity(loc: CLLocationCoordinate2D) {
         interactor?.fetchCurrentCity(loc: loc)
     }
@@ -37,11 +35,11 @@ class WeatherPresenter:ViewToPresenterProtocol {
 }
 
 extension WeatherPresenter: InteractorToPresenterProtocol{
-    
+    // Success handler bridge for weather API requests
     func cityFetchedSuccess(city: City) {
         view?.showCity(city: city)
     }
-    
+    // Request failier bridge for weather API requests
     func cityFetchFailed() {
         view?.showError()
     }

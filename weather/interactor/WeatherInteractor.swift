@@ -35,7 +35,7 @@ class WeatherInteractor: PresenterToInteractorProtocol{
                     
                     let tempReport = TemperatureReport(temp: temp!, temp_min: temp_min!, temp_max: temp_max!)
                     let windReport = WindReport(speed: speed!, deg: deg!)
-                    let model = City(name: name!, img: img!, id: id!, temp_report: tempReport, wind_report: windReport)
+                    let model = City(name: name!, img: img!, id: id!, temp_report: tempReport, wind_report: windReport, is_current_city: false)
                     self.presenter?.cityFetchedSuccess(city: model)
                 }
             } else {
@@ -65,7 +65,7 @@ class WeatherInteractor: PresenterToInteractorProtocol{
                     
                     let tempReport = TemperatureReport(temp: temp!, temp_min: temp_min!, temp_max: temp_max!)
                     let windReport = WindReport(speed: speed!, deg: deg!)
-                    let model = City(name: name!, img: img!, id: id!, temp_report: tempReport, wind_report: windReport)
+                    let model = City(name: name!, img: img!, id: id!, temp_report: tempReport, wind_report: windReport, is_current_city: false)
                     self.presenter?.cityFetchedSuccess(city: model)
                 }
             } else {
@@ -96,7 +96,7 @@ class WeatherInteractor: PresenterToInteractorProtocol{
                     
                     let tempReport = TemperatureReport(temp: temp!, temp_min: temp_min!, temp_max: temp_max!)
                     let windReport = WindReport(speed: speed!, deg: deg!)
-                    let model = City(name: name!, img: img!, id: id!, temp_report: tempReport, wind_report: windReport)
+                    let model = City(name: name!, img: img!, id: id!, temp_report: tempReport, wind_report: windReport, is_current_city: true)
                     self.presenter?.cityFetchedSuccess(city: model)
                 }
             }else {

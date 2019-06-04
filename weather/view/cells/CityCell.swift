@@ -8,7 +8,10 @@
 import UIKit
 
 class CityCell: UITableViewCell {
-    @IBOutlet weak var nameLabel       : UILabel!
-    @IBOutlet weak var tempLabel       : UILabel!
-    @IBOutlet weak var iconImage       : UIImageView!
+    @IBOutlet weak var nameLabel            : UILabel!
+    @IBOutlet weak var tempLabel            : UILabel!
+    @IBOutlet weak var yourLocationLabel    : UILabel?
+    @IBOutlet weak var iconImage            : UIImageView!
+    @IBOutlet weak var yourLocationImage    : UIImageView?
+
 }
